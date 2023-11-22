@@ -26,7 +26,7 @@ public class Jumping : MonoBehaviour
         if (Input.GetKey(KeyCode.Space) && groundCheck.isGrounded == true) // BE SURE TO REPLACE WITH UNITYS OWN INPUT LATER
         {
             Vector3 jumpVector = new Vector3(0, jumpForce, 0);
-            rb.AddForce(jumpVector);
+            rb.AddRelativeForce(jumpVector);
         }
     }
 }
