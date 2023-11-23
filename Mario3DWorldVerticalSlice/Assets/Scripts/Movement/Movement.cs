@@ -7,6 +7,7 @@ using UnityEngine.EventSystems;
 public class Movement : MonoBehaviour
 {
     [SerializeField] float maxSpeed = 5f; // Max move speed
+    [SerializeField] float runSpeedModifier = 2; // Run speed modifier of the original speed
     [SerializeField] float speed = 0f; // Current move speed
     [SerializeField] float acceleration = 0.4f; // Move acceleration
 
@@ -17,13 +18,14 @@ public class Movement : MonoBehaviour
 
     const float wallRayLength = 0.6f;
 
-    Rigidbody rb; // The rigidbody
+    Rigidbody rb;
 
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
+
 
 
     // Movement
@@ -49,17 +51,24 @@ public class Movement : MonoBehaviour
             {
                 speed = Mathf.Clamp(speed, 0, maxSpeed);
             }
-
-            // Move the player
-            if (IsCollidingWithWall() == false)
-            {
-                rb.MovePosition(transform.position + velocity);
-            }
         }
         else
         {
             // Set the current speed to zero when not moving
             speed = 0;
+        }
+
+        // Running
+        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) // REPLACE WITH UNITY INPUT LATER
+        {
+            speed *= runSpeedModifier;
+        }
+
+
+        // Move the player
+        if (IsCollidingWithWall() == false)
+        {
+            rb.MovePosition(transform.position + velocity);
         }
     }
 
