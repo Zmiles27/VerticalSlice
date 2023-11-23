@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 72199822}
   - component: {fileID: 72199824}
   - component: {fileID: 72199823}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Grounchecker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,7 +174,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afa8729b05f48d748aad70905618978c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coyoteTime: 0.08
+  groundRayLength: 1.25
+  coyoteTime: 0.1
   isGrounded: 0
   onLand:
     m_PersistentCalls:
@@ -190,7 +191,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.1, z: 0.5}
+  m_Size: {x: 0.6, y: 0.25, z: 0.6}
   m_Center: {x: 0, y: -0.95, z: 0}
 --- !u!1001 &130095527
 PrefabInstance:
@@ -556,7 +557,7 @@ GameObject:
   - component: {fileID: 379044576}
   - component: {fileID: 379044580}
   - component: {fileID: 379044581}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TestPlayer
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -658,7 +659,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03c34b874c335dc489ab30edb22e07ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 75
+  jumpForce: 68.5
+  gravity: 0.5
   groundCheck: {fileID: 72199823}
   onJump:
     m_PersistentCalls:
@@ -679,7 +681,12 @@ MonoBehaviour:
   runSpeedModifier: 2
   speed: 0
   acceleration: 0.4
+  decceleration: 0.65
+  groundCheck: {fileID: 72199823}
   wallCheckRay: {fileID: 1446078228}
+  whenRunning:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!136 &379044582
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1463,7 +1470,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1446078228}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: WallCheckRayTransform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
