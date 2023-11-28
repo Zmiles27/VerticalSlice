@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.EventSystems;
+
 
 public class Movement : MonoBehaviour
 {
@@ -23,14 +23,19 @@ public class Movement : MonoBehaviour
     Vector3 inputVector = Vector3.zero; // The input
     Vector3 lastVector = Vector3.zero; // The last recorded input
 
-    const float wallRayLength = 0.6f;
+    public int gamepad = 0; // Used gamepad
+    const float wallRayLength = 0.6f; // Length of the ray to do wallchecks
 
-    Rigidbody rb;
+    Rigidbody rb; // Players rigidbody
+    ControllerManager controllerManager; // Controller manager
 
 
+
+    // Setup
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        controllerManager = GetComponent<ControllerManager>();
     }
 
 
@@ -38,9 +43,11 @@ public class Movement : MonoBehaviour
     // Movement
     private void FixedUpdate()
     {
-        // Get the input
-        float zInput = Input.GetAxisRaw("Vertical");
-        float xInput = Input.GetAxisRaw("Horizontal");
+        // Input
+        int currentGamepad = controllerManager.gamepad;
+
+        float zInput = Input.GetAxisRaw("Vertical" + currentGamepad.ToString());
+        float xInput = Input.GetAxisRaw("Horizontal" + currentGamepad.ToString());
         inputVector = new Vector3(xInput, 0, zInput);
 
         // Velocity is the input vector times the movement speed.
@@ -86,8 +93,9 @@ public class Movement : MonoBehaviour
             }
         }
 
+
         // Running
-        if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) && groundCheck.isGrounded == true) // REPLACE WITH UNITY INPUT LATER
+        if (Input.GetButton("Run" + currentGamepad.ToString()) && groundCheck.isGrounded == true)
         {
             speed *= runSpeedModifier;
             speed = Mathf.Clamp(speed, 0, maxSpeed * runSpeedModifier);

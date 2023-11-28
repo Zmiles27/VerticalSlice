@@ -13,16 +13,20 @@ public class Jumping : MonoBehaviour
     [SerializeField] GroundCheck groundCheck; // The groundcheck
     [SerializeField] UnityEvent onJump; // Called when jumping
 
+    public int gamepad = 0; // Used gamepad
     bool isJumping = false; // Can jump if this is true
     int frame = 0; // Current frame of the jump
 
     Rigidbody rb;// The rigidbody
+    ControllerManager controllerManager; // Controller manager
 
+    
 
-    // Get the rigidbody
+    // Setup
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        controllerManager = GetComponent<ControllerManager>();
     }
 
 
