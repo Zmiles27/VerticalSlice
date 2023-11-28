@@ -16,7 +16,7 @@ public class Movement : MonoBehaviour
     [SerializeField] GroundCheck groundCheck; // Check to check if is on ground
     [SerializeField] Transform wallCheckRay; // Transform of the position where the wall check ray will be emitted from
 
-    private bool isRunning = false;
+    private bool isRunning = false; // If is running
     [SerializeField] UnityEvent whenRunning; // Invoked when running
 
     Vector3 velocity = Vector3.zero; // Velocity
@@ -27,7 +27,6 @@ public class Movement : MonoBehaviour
     const float wallRayLength = 0.6f; // Length of the ray to do wallchecks
 
     Rigidbody rb; // Players rigidbody
-    ControllerManager controllerManager; // Controller manager
 
 
 
@@ -35,7 +34,6 @@ public class Movement : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        controllerManager = GetComponent<ControllerManager>();
     }
 
 
@@ -44,10 +42,8 @@ public class Movement : MonoBehaviour
     private void FixedUpdate()
     {
         // Input
-        int currentGamepad = controllerManager.gamepad;
-
-        float zInput = Input.GetAxisRaw("Vertical" + currentGamepad.ToString());
-        float xInput = Input.GetAxisRaw("Horizontal" + currentGamepad.ToString());
+        float zInput = Input.GetAxisRaw("Vertical" + gamepad.ToString());
+        float xInput = Input.GetAxisRaw("Horizontal" + gamepad.ToString());
         inputVector = new Vector3(xInput, 0, zInput);
 
         // Velocity is the input vector times the movement speed.
@@ -95,7 +91,7 @@ public class Movement : MonoBehaviour
 
 
         // Running
-        if (Input.GetButton("Run" + currentGamepad.ToString()) && groundCheck.isGrounded == true)
+        if (Input.GetButton("Run" + gamepad.ToString()) && groundCheck.isGrounded == true)
         {
             speed *= runSpeedModifier;
             speed = Mathf.Clamp(speed, 0, maxSpeed * runSpeedModifier);

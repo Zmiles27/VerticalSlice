@@ -18,7 +18,6 @@ public class Jumping : MonoBehaviour
     int frame = 0; // Current frame of the jump
 
     Rigidbody rb;// The rigidbody
-    ControllerManager controllerManager; // Controller manager
 
     
 
@@ -26,15 +25,15 @@ public class Jumping : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        controllerManager = GetComponent<ControllerManager>();
     }
+
 
 
     // Input
     private void FixedUpdate()
     {
         // When the jump button is pressed and the player is on the ground, JUMP
-        if (Input.GetKey(KeyCode.Space)) // BE SURE TO REPLACE WITH UNITYS OWN INPUT LATER
+        if (Input.GetButton("Jump" + gamepad.ToString()))
         {
             if (groundCheck.isGrounded == true)
             {

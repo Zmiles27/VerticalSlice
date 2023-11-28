@@ -18,8 +18,7 @@ public class ControllerManager : MonoBehaviour
         movement = GetComponent<Movement>();
         jumping = GetComponent<Jumping>();
 
-        movement.gamepad = gamepad;
-        jumping.gamepad = gamepad;
+        SetGamepad(gamepad);
     }
 
 
