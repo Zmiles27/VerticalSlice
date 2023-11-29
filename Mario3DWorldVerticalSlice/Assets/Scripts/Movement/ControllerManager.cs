@@ -5,7 +5,7 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class ControllerManager : MonoBehaviour
 {
-    [SerializeField][Range(0, 3)] public int gamepad = 0;
+    [SerializeField][Range(0, 4)] public int gamepad = 0; // Gamepad 4 should be the keyboard, for testing purposes
 
     Movement movement;
     Jumping jumping;

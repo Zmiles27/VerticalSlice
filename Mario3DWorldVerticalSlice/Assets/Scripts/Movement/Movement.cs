@@ -44,7 +44,7 @@ public class Movement : MonoBehaviour
         // Input
         float zInput = Input.GetAxisRaw("Vertical" + gamepad.ToString());
         float xInput = Input.GetAxisRaw("Horizontal" + gamepad.ToString());
-        inputVector = new Vector3(xInput, 0, zInput);
+        inputVector = new Vector3(xInput, 0, zInput); // (zInput is inverted due to controllers having inverted input on the Y axis)
 
         // Velocity is the input vector times the movement speed.
         velocity = inputVector * speed * Time.deltaTime;
@@ -74,12 +74,25 @@ public class Movement : MonoBehaviour
                     }
                 }
             }
+
+            // Running
+            if (Input.GetButton("Run" + gamepad.ToString()) && groundCheck.isGrounded == true)
+            {
+                speed *= runSpeedModifier;
+                speed = Mathf.Clamp(speed, 0, maxSpeed * runSpeedModifier);
+
+                isRunning = true;
+
+                whenRunning.Invoke();
+            }
         }
         else
         {
             // Set the current speed to zero when not moving
             if (speed > 0)
             {
+                isRunning = false;
+
                 speed -= decceleration;
                 velocity = lastVector * speed * Time.deltaTime;
             }
@@ -87,18 +100,6 @@ public class Movement : MonoBehaviour
             {
                 speed = 0;
             }
-        }
-
-
-        // Running
-        if (Input.GetButton("Run" + gamepad.ToString()) && groundCheck.isGrounded == true)
-        {
-            speed *= runSpeedModifier;
-            speed = Mathf.Clamp(speed, 0, maxSpeed * runSpeedModifier);
-
-            isRunning = true;
-
-            whenRunning.Invoke();
         }
 
 
