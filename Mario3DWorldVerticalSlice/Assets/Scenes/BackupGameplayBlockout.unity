@@ -521,6 +521,26 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 251f6726bfbef824181bd5a2a34ceba4, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f392aac9da87d1f4db24be41af16b256, type: 3}
+--- !u!1 &1680339542 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6335250783087129314, guid: f392aac9da87d1f4db24be41af16b256,
+    type: 3}
+  m_PrefabInstance: {fileID: 1386729283}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1680339546
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1680339542}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -6857689473578963052, guid: f392aac9da87d1f4db24be41af16b256, type: 3}
 --- !u!1 &1725160762
 GameObject:
   m_ObjectHideFlags: 0
@@ -533,6 +553,7 @@ GameObject:
   - component: {fileID: 1725160766}
   - component: {fileID: 1725160765}
   - component: {fileID: 1725160764}
+  - component: {fileID: 1725160767}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -548,7 +569,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1725160762}
   m_LocalRotation: {x: 0.23194015, y: -0, z: -0, w: 0.9727301}
-  m_LocalPosition: {x: -0.579998, y: 2.7999954, z: -8.340002}
+  m_LocalPosition: {x: -0.579998, y: 5.1, z: -11.44}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -639,6 +660,20 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &1725160767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1725160762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b4a606c6d924ff43a5559898a287147, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1342193620}
+  smoothTime: 0.25
 --- !u!1 &2053579393
 GameObject:
   m_ObjectHideFlags: 0
@@ -695,7 +730,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2053579393}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.52, z: -0.14}
+  m_LocalPosition: {x: 0, y: -0.64, z: -0.14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
