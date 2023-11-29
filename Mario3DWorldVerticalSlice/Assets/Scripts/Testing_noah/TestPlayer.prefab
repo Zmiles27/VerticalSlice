@@ -227,13 +227,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03c34b874c335dc489ab30edb22e07ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 75.7
+  jumpForce: 75.5
   gravity: 1
   groundCheck: {fileID: 6202254152346578387}
   onJump:
     m_PersistentCalls:
       m_Calls: []
-  gamepad: 1
+  gamepad: 0
 --- !u!114 &6202254152653160889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,7 +256,7 @@ MonoBehaviour:
   whenRunning:
     m_PersistentCalls:
       m_Calls: []
-  gamepad: 1
+  gamepad: 0
 --- !u!114 &-6106342038212715804
 MonoBehaviour:
   m_ObjectHideFlags: 0

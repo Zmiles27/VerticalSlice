@@ -13,7 +13,7 @@ public class Jumping : MonoBehaviour
     [SerializeField] UnityEvent onJump; // Called when jumping
 
     public int gamepad = 0; // Used gamepad
-    bool isJumping = false; // Can jump if this is true
+    bool isJumping = false; // True if the player jumps
 
     Rigidbody rb;// The rigidbody
 
@@ -28,31 +28,39 @@ public class Jumping : MonoBehaviour
 
 
     // Input
-    private void FixedUpdate()
+    private void Update()
     {
         // When the jump button is pressed and the player is on the ground, JUMP
         if (Input.GetButton("Jump" + gamepad.ToString()))
         {
-            if (groundCheck.isGrounded == true)
+            if (groundCheck.isGrounded == true && isJumping == false)
             {
                 Jump();
-                isJumping = true;
             }
         }
+        if (groundCheck.isGrounded == true)
+        {
+            isJumping = false;
+        }
+    }
 
+
+
+    // Physics
+    private void FixedUpdate()
+    {
         // Gravity
         if (rb.useGravity) rb.AddForce(Physics.gravity * (rb.mass * gravity));
     }
 
 
+
     // Jumping
     private void Jump()
     {
-        if (isJumping == true)
-        {
-            Vector3 jumpVector = new Vector3(0, jumpForce, 0);
+        isJumping = true;
+        Vector3 jumpVector = new Vector3(0, jumpForce, 0);
 
-            rb.velocity += jumpVector * Time.fixedDeltaTime;
-        }
+        rb.velocity += jumpVector * Time.deltaTime;
     }
 }
