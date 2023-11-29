@@ -6,7 +6,7 @@ public class RespawnScript : MonoBehaviour
 {
     private void Update()
     {
-        if(transform.position.y < 0)
+        if(transform.position.y < 2)
         {
             transform.position = new Vector3(-21, 55, -26);
         }
