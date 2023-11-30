@@ -8,36 +8,39 @@
 
 -
 
-    Bewijs voor OOP scripts en scripts voldoen aan code conventies/afspraken.
+# 1 OOP scripts
 
 -
 
-    Bewijs voor goed kunnen kijken naar een game en hoe de game is opgebouwd.
+# 2 Goed kunnen kijken naar een game
 
 -
 
-    Bewijs voor het gebruiken van Adobe zoals bijvoorbeeld photoshop.
+# 3 Gebruiken van Adobe
 
 -
 
-    Bewijs voor het goed kunnen afwerken van een game.
+# 4 Afwerken van een game
 
 -
 
-    Bewijs voor scripten in kaart brengen met een class diagram.
+# 5 Scripten in kaart brengen met een class diagram
 
 -
 
-    Bewijs voor het maken van afspraken over code.
+# 6 Afspraken over code
 
 -
 
-    Aangeven wat voor rollen er waren in het team.
+# 7 Team Rollen
 
 -
 
-    Bewijs voor het goed gebruiken van de DoD.
+# 8 Gebruik van de DoD
 
 -
 
-    Bewijs voor het gebruiken van pull requests in github.
+# 9 Pull Requests
+In ons Project hebben we **pull request** gebruikt voor de **Develop Branch** en de **Main Branch** om er voor te zorgen dat er geen confclicten of niet afgemaakte code/art in de belangerijke branches komen.
+
+![ScreenshotGitPullRequest](READMEFiles/Photo's/PullRequest.png)
