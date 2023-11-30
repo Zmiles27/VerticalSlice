@@ -2350,11 +2350,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1040742047}
     m_Modifications:
-    - target: {fileID: -6106342038212715804, guid: 3ae18d3165d30674fb8e7f8c5d0e5b85,
-        type: 3}
-      propertyPath: gamepad
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 5955705510005138917, guid: 3ae18d3165d30674fb8e7f8c5d0e5b85,
         type: 3}
       propertyPath: m_DefaultActionMap

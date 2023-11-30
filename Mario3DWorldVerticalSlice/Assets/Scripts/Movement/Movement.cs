@@ -21,7 +21,6 @@ public class Movement : MonoBehaviour
 
     Vector3 velocity = Vector3.zero; // Velocity
     Vector3 inputVector = Vector3.zero; // The input
-    Vector3 lastVector = Vector3.zero; // The last recorded input
 
     public int gamepad = 0; // Used gamepad
     const float wallRayLength = 0.6f; // Length of the ray to do wallchecks
@@ -41,18 +40,19 @@ public class Movement : MonoBehaviour
     // Movement
     private void FixedUpdate()
     {
+
         // Input
         float zInput = Input.GetAxisRaw("Vertical" + gamepad.ToString());
         float xInput = Input.GetAxisRaw("Horizontal" + gamepad.ToString());
-        inputVector = new Vector3(xInput, 0, zInput); // (zInput is inverted due to controllers having inverted input on the Y axis)
 
         // Velocity is the input vector times the movement speed.
         velocity = inputVector * speed * Time.deltaTime;
 
         // If the input is not Vector2(0, 0), then the player is allowed to move.
-        if (inputVector != Vector3.zero)
+        Vector3 newInput = new Vector3(xInput, 0, zInput);
+        if (newInput != Vector3.zero)
         {
-            lastVector = inputVector;
+            inputVector = newInput;
 
             // Add acceleration
             if (speed < maxSpeed)
@@ -89,12 +89,12 @@ public class Movement : MonoBehaviour
         else
         {
             // Set the current speed to zero when not moving
-            if (speed > 0)
+            if (speed != 0)
             {
                 isRunning = false;
 
                 speed -= decceleration;
-                velocity = lastVector * speed * Time.deltaTime;
+                speed = Mathf.Clamp(speed, 0, maxSpeed);
             }
             else
             {

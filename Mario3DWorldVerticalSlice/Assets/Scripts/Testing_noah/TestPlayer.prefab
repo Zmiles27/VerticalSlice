@@ -227,8 +227,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03c34b874c335dc489ab30edb22e07ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 75.5
-  gravity: 1
+  jumpForce: 225.5
+  jumpStages: 3
+  gravity: 1.25
   groundCheck: {fileID: 6202254152346578387}
   onJump:
     m_PersistentCalls:
@@ -250,7 +251,7 @@ MonoBehaviour:
   runSpeedModifier: 2
   speed: 0
   acceleration: 0.4
-  decceleration: 0.65
+  decceleration: 1.5
   groundCheck: {fileID: 6202254152346578387}
   wallCheckRay: {fileID: 6202254151573038152}
   whenRunning:
