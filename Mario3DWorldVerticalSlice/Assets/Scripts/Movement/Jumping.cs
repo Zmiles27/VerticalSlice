@@ -6,9 +6,7 @@ using UnityEngine.Events;
 
 public class Jumping : MonoBehaviour
 {
-    float currentJumpForce = 0; // The current force of the player jump
-    [SerializeField][Range(1, 2000)] float jumpForce; // The force of the player jump
-    [SerializeField][Range(1, 20)] int jumpStages = 3; // Amount of stages of the jump
+    [SerializeField][Range(0, 1)] float jumpForce; // The force of the player jump
 
     [SerializeField][Range(0.1f, 5)] float gravity = 2; // The gravity of the player
 
@@ -16,9 +14,9 @@ public class Jumping : MonoBehaviour
     [SerializeField] UnityEvent onJump; // Called when jumping
 
     public int gamepad = 0; // Used gamepad
-    bool isJumping = false; // True if jumping
 
     Rigidbody rb;// The rigidbody
+    Mover mover;// The object to move the player
 
     
 
@@ -26,6 +24,7 @@ public class Jumping : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        mover = GetComponent<Mover>();
     }
 
 
@@ -34,18 +33,19 @@ public class Jumping : MonoBehaviour
     private void Update()
     {
         // When the jump button is pressed and the player is on the ground, JUMP
-        if (Input.GetButton("Jump" + gamepad.ToString()))
+        if (Input.GetButtonDown("Jump" + gamepad.ToString()))
         {
             if (groundCheck.isGrounded == true)
             {
-                Jump();
+                mover.Yvelocity = jumpForce;
             }
         }
-        if (groundCheck.isGrounded == true && currentJumpForce > 0 && isJumping == true)
-        {
-            currentJumpForce = 0;
-            isJumping = false;
-        }
+    }
+
+    // Reset velocity
+    private void OnCollisionEnter(Collision collision)
+    {
+        mover.Yvelocity = 0;
     }
 
 
@@ -55,25 +55,5 @@ public class Jumping : MonoBehaviour
     {
         // Gravity
         if (rb.useGravity) rb.AddForce(Physics.gravity * (rb.mass * gravity));
-    }
-
-
-
-    // Jumping
-    private void Jump()
-    {
-        isJumping = true;
-        currentJumpForce += jumpForce / jumpStages;
-
-        if (currentJumpForce <= jumpForce)
-        {
-            Vector3 jumpVector = new Vector3(0, currentJumpForce, 0);
-
-            rb.velocity += jumpVector * Time.deltaTime;
-        }
-        else
-        {
-            isJumping = false;
-        }
     }
 }

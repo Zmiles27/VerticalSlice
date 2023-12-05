@@ -25,14 +25,14 @@ public class Movement : MonoBehaviour
     public int gamepad = 0; // Used gamepad
     const float wallRayLength = 0.6f; // Length of the ray to do wallchecks
 
-    Rigidbody rb; // Players rigidbody
+    Mover mover; // Object used to move player
 
 
 
     // Setup
     private void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        mover = GetComponent<Mover>();
     }
 
 
@@ -106,7 +106,8 @@ public class Movement : MonoBehaviour
         // Move the player
         if (IsCollidingWithWall() == false)
         {
-            rb.MovePosition(transform.position + velocity);
+            mover.Xvelocity = velocity.x;
+            mover.Zvelocity = velocity.z;
         }
     }
 
