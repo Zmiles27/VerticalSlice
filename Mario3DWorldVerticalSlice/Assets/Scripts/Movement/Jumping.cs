@@ -38,6 +38,8 @@ public class Jumping : MonoBehaviour
             if (groundCheck.isGrounded == true)
             {
                 mover.Yvelocity = jumpForce;
+
+                onJump.Invoke();
             }
         }
     }

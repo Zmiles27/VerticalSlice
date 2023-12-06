@@ -9,6 +9,7 @@ public class ControllerManager : MonoBehaviour
 
     Movement movement;
     Jumping jumping;
+    Dive dive;
 
 
 
@@ -17,6 +18,7 @@ public class ControllerManager : MonoBehaviour
     {
         movement = GetComponent<Movement>();
         jumping = GetComponent<Jumping>();
+        dive = GetComponent<Dive>();
 
         SetGamepad(gamepad);
     }
@@ -29,6 +31,7 @@ public class ControllerManager : MonoBehaviour
 
         movement.gamepad = gamepad;
         jumping.gamepad = gamepad;
+        dive.gamepad = gamepad;
     }
 }
 
