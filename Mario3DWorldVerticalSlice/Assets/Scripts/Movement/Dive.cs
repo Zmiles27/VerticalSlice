@@ -17,6 +17,8 @@ public class Dive : MonoBehaviour
     public int gamepad = 0;
 
     Vector3 inputVector = Vector3.zero;
+
+    public bool isDiving = false;
     bool canDive = true;
     bool bufferingVelocity = false;
 
@@ -65,6 +67,7 @@ public class Dive : MonoBehaviour
     IEnumerator DiveLoop()
     {
         rb.useGravity = false;
+        isDiving = true;
         yield return new WaitForSeconds(diveTime);
 
         rb.useGravity = true;
@@ -73,6 +76,7 @@ public class Dive : MonoBehaviour
             rb.AddForce(inputVector * diveSpeed, ForceMode.Impulse);
             rb.AddForce(Physics.gravity * (rb.mass * diveSpeed / 4), ForceMode.Impulse);
         }
+        isDiving = false;
 
         yield break;
     }

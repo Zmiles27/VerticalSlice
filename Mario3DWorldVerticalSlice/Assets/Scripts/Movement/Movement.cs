@@ -18,6 +18,7 @@ public class Movement : MonoBehaviour
 
     private bool isRunning = false; // If is running
     [SerializeField] UnityEvent whenRunning; // Invoked when running
+    [SerializeField] UnityEvent onDeccel; // Invoked when deccelerating
 
     Vector3 velocity = Vector3.zero; // Velocity
     Vector3 inputVector = Vector3.zero; // The input
@@ -95,6 +96,8 @@ public class Movement : MonoBehaviour
 
                 speed -= decceleration;
                 speed = Mathf.Clamp(speed, 0, maxSpeed);
+
+                if (groundCheck.isGrounded == true) onDeccel.Invoke();
             }
             else
             {
@@ -109,6 +112,7 @@ public class Movement : MonoBehaviour
             mover.Xvelocity = velocity.x;
             mover.Zvelocity = velocity.z;
         }
+        else inputVector = Vector3.zero;
     }
 
 
