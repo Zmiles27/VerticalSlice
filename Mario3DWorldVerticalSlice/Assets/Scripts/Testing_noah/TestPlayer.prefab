@@ -5165,6 +5165,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   gamepad: 0
+  isDiving: 0
 --- !u!114 &833203997723451429
 MonoBehaviour:
   m_ObjectHideFlags: 0
