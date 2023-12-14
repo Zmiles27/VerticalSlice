@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.EventSystems;
+
 
 public class Movement : MonoBehaviour
 {
@@ -16,21 +16,24 @@ public class Movement : MonoBehaviour
     [SerializeField] GroundCheck groundCheck; // Check to check if is on ground
     [SerializeField] Transform wallCheckRay; // Transform of the position where the wall check ray will be emitted from
 
-    private bool isRunning = false;
+    private bool isRunning = false; // If is running
     [SerializeField] UnityEvent whenRunning; // Invoked when running
+    [SerializeField] UnityEvent onDeccel; // Invoked when deccelerating
 
     Vector3 velocity = Vector3.zero; // Velocity
     Vector3 inputVector = Vector3.zero; // The input
-    Vector3 lastVector = Vector3.zero; // The last recorded input
 
-    const float wallRayLength = 0.6f;
+    public int gamepad = 0; // Used gamepad
+    const float wallRayLength = 0.6f; // Length of the ray to do wallchecks
 
-    Rigidbody rb;
+    Mover mover; // Object used to move player
 
 
+
+    // Setup
     private void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        mover = GetComponent<Mover>();
     }
 
 
@@ -38,18 +41,19 @@ public class Movement : MonoBehaviour
     // Movement
     private void FixedUpdate()
     {
-        // Get the input
-        float zInput = Input.GetAxisRaw("Vertical");
-        float xInput = Input.GetAxisRaw("Horizontal");
-        inputVector = new Vector3(xInput, 0, zInput);
+
+        // Input
+        float zInput = Input.GetAxisRaw("Vertical" + gamepad.ToString());
+        float xInput = Input.GetAxisRaw("Horizontal" + gamepad.ToString());
 
         // Velocity is the input vector times the movement speed.
         velocity = inputVector * speed * Time.deltaTime;
 
         // If the input is not Vector2(0, 0), then the player is allowed to move.
-        if (inputVector != Vector3.zero)
+        Vector3 newInput = new Vector3(xInput, 0, zInput);
+        if (newInput != Vector3.zero)
         {
-            lastVector = inputVector;
+            inputVector = newInput;
 
             // Add acceleration
             if (speed < maxSpeed)
@@ -71,14 +75,29 @@ public class Movement : MonoBehaviour
                     }
                 }
             }
+
+            // Running
+            if (Input.GetButton("Run" + gamepad.ToString()) && groundCheck.isGrounded == true)
+            {
+                speed *= runSpeedModifier;
+                speed = Mathf.Clamp(speed, 0, maxSpeed * runSpeedModifier);
+
+                isRunning = true;
+
+                whenRunning.Invoke();
+            }
         }
         else
         {
             // Set the current speed to zero when not moving
-            if (speed > 0)
+            if (speed != 0)
             {
+                isRunning = false;
+
                 speed -= decceleration;
-                velocity = lastVector * speed * Time.deltaTime;
+                speed = Mathf.Clamp(speed, 0, maxSpeed);
+
+                if (groundCheck.isGrounded == true) onDeccel.Invoke();
             }
             else
             {
@@ -86,23 +105,14 @@ public class Movement : MonoBehaviour
             }
         }
 
-        // Running
-        if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) && groundCheck.isGrounded == true) // REPLACE WITH UNITY INPUT LATER
-        {
-            speed *= runSpeedModifier;
-            speed = Mathf.Clamp(speed, 0, maxSpeed * runSpeedModifier);
-
-            isRunning = true;
-
-            whenRunning.Invoke();
-        }
-
 
         // Move the player
         if (IsCollidingWithWall() == false)
         {
-            rb.MovePosition(transform.position + velocity);
+            mover.Xvelocity = velocity.x;
+            mover.Zvelocity = velocity.z;
         }
+        else inputVector = Vector3.zero;
     }
 
 
