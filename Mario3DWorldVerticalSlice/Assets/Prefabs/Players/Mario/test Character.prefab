@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1331458518386037941}
   - component: {fileID: 1331458518386037940}
   - component: {fileID: 1331458518386037931}
-  - component: {fileID: 1331458518386037930}
+  - component: {fileID: -5363652619118322681}
   m_Layer: 0
   m_Name: test Character
   m_TagString: Untagged
@@ -132,11 +132,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 32
+  jumpStages: 3
+  gravity: 2
   groundCheck: {fileID: 1331458519097297382}
   onJump:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1331458518386037930
+  gamepad: 0
+--- !u!114 &-5363652619118322681
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -145,10 +148,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1331458518386037929}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca05932e5f849a94bac7461eaf0a5d46, type: 3}
+  m_Script: {fileID: 11500000, guid: 811e1e6f3169d054fa685dc31c570996, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  gamepad: 4
 --- !u!1 &1331458518615766622
 GameObject:
   m_ObjectHideFlags: 0
@@ -340,6 +343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afa8729b05f48d748aad70905618978c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  groundRayLength: 1.02
   coyoteTime: 0.2
   isGrounded: 0
   onLand:
