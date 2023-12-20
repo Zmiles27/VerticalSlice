@@ -4944,7 +4944,9 @@ GameObject:
   - component: {fileID: 6202254152653160888}
   - component: {fileID: 6202254152653160889}
   - component: {fileID: 6394749381801438417}
+  - component: {fileID: 539775101782920941}
   - component: {fileID: 833203997723451429}
+  - component: {fileID: 8196697588264964470}
   - component: {fileID: -6106342038212715804}
   m_Layer: 2
   m_Name: TestPlayer
@@ -5166,6 +5168,18 @@ MonoBehaviour:
         m_CallState: 2
   gamepad: 0
   isDiving: 0
+--- !u!114 &539775101782920941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6202254152653160833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e2d5b1e18421ec44b7219de7361ed80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &833203997723451429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5181,6 +5195,19 @@ MonoBehaviour:
   Xvelocity: 0
   Yvelocity: 0
   Zvelocity: 0
+--- !u!114 &8196697588264964470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6202254152653160833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81c30bdc5799e804b8b722bb23cef2c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentState: 0
 --- !u!114 &-6106342038212715804
 MonoBehaviour:
   m_ObjectHideFlags: 0
