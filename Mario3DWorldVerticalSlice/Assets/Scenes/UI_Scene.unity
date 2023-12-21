@@ -1526,9 +1526,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinValue: 5
   scoreValue: 0
+  holder: {fileID: 0}
   onPickup:
     m_PersistentCalls:
       m_Calls: []
+    m_CallsDirty: 1
 --- !u!135 &1695692074
 SphereCollider:
   m_ObjectHideFlags: 0
