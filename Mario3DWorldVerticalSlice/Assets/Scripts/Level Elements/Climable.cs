@@ -17,8 +17,10 @@ public class Climable : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             PlayerStateMachine stateMachine = collision.gameObject.GetComponent<PlayerStateMachine>();
+            Climbing playerClimbing = collision.gameObject.GetComponent<Climbing>();
 
             stateMachine.CURRENTSTATE = PlayerStateMachine.PlayerState.CLIMBING;
+            playerClimbing.SetClimbingCenter(this);
         }
     }
 

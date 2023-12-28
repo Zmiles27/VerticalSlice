@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class Climbing : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    Climable currentClimable;
 
-    // Update is called once per frame
-    void Update()
+
+    public void SetClimbingCenter(Climable climable)
     {
-        
+        currentClimable = climable;
     }
 }
