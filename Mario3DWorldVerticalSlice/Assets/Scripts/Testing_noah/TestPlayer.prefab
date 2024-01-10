@@ -5180,6 +5180,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e2d5b1e18421ec44b7219de7361ed80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  groundCheck: {fileID: 6202254152346578387}
+  climbSpeed: 10
+  gamepad: 0
 --- !u!114 &833203997723451429
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -22,4 +22,9 @@ public class Mover : MonoBehaviour
         velocity = new Vector3 (Xvelocity, Yvelocity, Zvelocity);
         rb.MovePosition(transform.position + velocity);
     }
+
+    public void MoveToPosition(Vector3 newPos)
+    {
+        rb.MovePosition(newPos);
+    }
 }

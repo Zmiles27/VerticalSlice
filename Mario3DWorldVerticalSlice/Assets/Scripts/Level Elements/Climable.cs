@@ -33,4 +33,11 @@ public class Climable : MonoBehaviour
         Gizmos.DrawLine(transform.position + startPos, transform.position + endPos);
         Gizmos.DrawSphere(transform.position + endPos, debugSphereRadius);
     }
+
+
+    public Vector3 GetEndPos()
+    {
+        Vector3 globalEndPos = transform.position + endPos;
+        return globalEndPos;
+    }
 }
