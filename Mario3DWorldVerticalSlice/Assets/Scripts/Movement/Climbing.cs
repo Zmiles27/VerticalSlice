@@ -12,6 +12,7 @@ public class Climbing : MonoBehaviour
 
     Climable currentClimable;
 
+    [SerializeField] float climbJumpPower = 600.0f;
     [SerializeField] float climbSpeed = 10.0f;
 
     public int gamepad = 0; // Used gamepad
@@ -52,10 +53,10 @@ public class Climbing : MonoBehaviour
             }
         }
 
-
-        if (groundCheck.isGrounded ==  true || Input.GetButtonDown("Jump" + gamepad.ToString()))
+        if (groundCheck.isGrounded ==  true || Input.GetButton("Jump" + gamepad.ToString()))
         {
-            mover.Yvelocity = 100;
+            Vector3 jumpVector = new Vector3(0, climbJumpPower * Time.deltaTime, 0);
+            rb.AddForce(jumpVector, ForceMode.Impulse);
 
             rb.useGravity = true;
             stateMachine.CURRENTSTATE = PlayerStateMachine.PlayerState.NORMAL;

@@ -731,6 +731,16 @@ PrefabInstance:
       propertyPath: gamepad
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 539775101782920941, guid: 3ae18d3165d30674fb8e7f8c5d0e5b85,
+        type: 3}
+      propertyPath: gamepad
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 539775101782920941, guid: 3ae18d3165d30674fb8e7f8c5d0e5b85,
+        type: 3}
+      propertyPath: climbJumpPower
+      value: 600
+      objectReference: {fileID: 0}
     - target: {fileID: 6202254152653160833, guid: 3ae18d3165d30674fb8e7f8c5d0e5b85,
         type: 3}
       propertyPath: m_Name
