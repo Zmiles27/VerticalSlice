@@ -1,8 +1,6 @@
 # **Vertical Slice Super Mario 3D World**
+![ScreenshotVanGame](READMEFiles/Photo's/GameScreenshot.png)
 
-    Screenshot van Vertical Slice product.
-
--
 Onze Vertical Slice is een namaak van Super Mario 3D Wrold (2e deel van level 1-1). Dit Project Is gemaakt Door 4 Game Developers en 5 Game Artists.
 
 * Game Developers: Justin.K, Ruben.G, Noah.A en Gerben.P
