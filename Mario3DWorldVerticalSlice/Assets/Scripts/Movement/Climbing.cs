@@ -16,7 +16,7 @@ public class Climbing : MonoBehaviour
 
     [SerializeField] float climbJumpPower = 600.0f;
     [SerializeField] float climbSpeed = 10.0f;
-    [SerializeField] float turnSpeed = 2.0f;
+    [SerializeField] float turnSpeed = 180f;
 
     [SerializeField] UnityEvent onAction; // Invoked when jumping or landing
 
@@ -65,19 +65,13 @@ public class Climbing : MonoBehaviour
             {
                 // Get the climable position
                 Transform climableTrans = currentClimable.transform;
-                Vector3 climablePos = new Vector3(climableTrans.position.x, transform.position.y, climableTrans.position.z);
+                Vector3 climablePos = new Vector3(climableTrans.position.x, rb.position.y, climableTrans.position.z);
                 
-                // Get the angle and radius
-                float radius = xInput * Vector3.Distance(transform.position, climablePos);
-                float angle = turnSpeed * Time.deltaTime;
-
-                // Get the positions on the perimeter of the circle
-                float xTurn = Mathf.Cos(angle + radius);
-                float zTurn = Mathf.Sin(angle + radius);
-                Vector3 newPos = new Vector3(xTurn, 0, zTurn);
+                // Get the next angle
+                float angle = -xInput * turnSpeed * Time.deltaTime;
 
                 // Move the player position
-                mover.MoveToPosition(transform.position + newPos);
+                transform.RotateAround(climablePos, Vector3.up, angle);
             }
         }
 
@@ -112,13 +106,13 @@ public class Climbing : MonoBehaviour
         if (currentClimable != null)
         {
             Transform climableTrans = currentClimable.transform;
-            Vector3 climablePos = new Vector3(climableTrans.position.x, transform.position.y, climableTrans.position.z);
-            float radius = Vector3.Distance(transform.position, climablePos);
+            Vector3 climablePos = new Vector3(climableTrans.position.x, rb.position.y, climableTrans.position.z);
+            float radius = Vector3.Distance(rb.position, climablePos);
 
             Gizmos.DrawWireSphere(climablePos, radius);
 
             Gizmos.color = Color.green;
-            Gizmos.DrawLine(transform.position, climablePos);
+            Gizmos.DrawLine(rb.position, climablePos);
         }
     }
 }

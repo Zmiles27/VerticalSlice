@@ -5183,6 +5183,7 @@ MonoBehaviour:
   groundCheck: {fileID: 6202254152346578387}
   climbJumpPower: 600
   climbSpeed: 10
+  turnSpeed: 180
   onAction:
     m_PersistentCalls:
       m_Calls:
