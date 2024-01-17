@@ -57,7 +57,8 @@ public class Climbing : MonoBehaviour
 
             if (transform.position.y >= currentClimable.GetEndPos().y)
             {
-                mover.MoveToPosition(currentClimable.GetEndPos());
+                Vector3 endPos = Vector3.MoveTowards(transform.position, currentClimable.GetEndPos(), climbSpeed * Time.deltaTime);
+                mover.MoveToPosition(endPos);
             }
 
             // Rotation movement
