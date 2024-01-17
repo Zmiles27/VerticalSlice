@@ -4862,7 +4862,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6202254152346578386}
   - component: {fileID: 6202254152346578380}
-  - component: {fileID: 6202254152346578387}
+  - component: {fileID: 6082100677865107635}
   m_Layer: 2
   m_Name: Grounchecker
   m_TagString: Untagged
@@ -4898,7 +4898,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.6, y: 0.25, z: 0.6}
   m_Center: {x: 0, y: -0.95, z: 0}
---- !u!114 &6202254152346578387
+--- !u!114 &6082100677865107635
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4910,8 +4910,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afa8729b05f48d748aad70905618978c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundRayLength: 1.25
-  coyoteTime: 0.1
+  groundRayLength: 1.02
+  coyoteTime: 0.08
   isGrounded: 0
   onLand:
     m_PersistentCalls:
@@ -4923,7 +4923,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 20
+          m_IntArgument: 15
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -4941,13 +4941,13 @@ GameObject:
   - component: {fileID: 6202254152653160894}
   - component: {fileID: 6202254152653160890}
   - component: {fileID: 6202254152653160892}
-  - component: {fileID: 6202254152653160888}
-  - component: {fileID: 6202254152653160889}
-  - component: {fileID: 6394749381801438417}
-  - component: {fileID: 539775101782920941}
-  - component: {fileID: 833203997723451429}
-  - component: {fileID: 8196697588264964470}
-  - component: {fileID: -6106342038212715804}
+  - component: {fileID: 4472360036399829685}
+  - component: {fileID: 2235324557299326240}
+  - component: {fileID: 4985932955358864370}
+  - component: {fileID: 187833042609221062}
+  - component: {fileID: 8937791122606251627}
+  - component: {fileID: 3701888664199297040}
+  - component: {fileID: 6689957600327658377}
   m_Layer: 2
   m_Name: TestPlayer
   m_TagString: Player
@@ -5001,7 +5001,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f1b92506d38d9b5439bbd31a0902e855, type: 2}
+  - {fileID: 2100000, guid: 486d50127a4b9844c9b4e3f41a466b17, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5053,39 +5053,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &6202254152653160888
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6202254152653160833}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03c34b874c335dc489ab30edb22e07ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpForce: 0.23
-  gravity: 3
-  minGravity: 1.2
-  groundCheck: {fileID: 6202254152346578387}
-  onJump:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2552702791193978858}
-        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
-        m_MethodName: Emit
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 20
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  gamepad: 0
---- !u!114 &6202254152653160889
+--- !u!114 &4472360036399829685
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5101,8 +5069,8 @@ MonoBehaviour:
   runSpeedModifier: 2
   speed: 0
   acceleration: 0.4
-  decceleration: 1.5
-  groundCheck: {fileID: 6202254152346578387}
+  decceleration: 0.75
+  groundCheck: {fileID: 6082100677865107635}
   wallCheckRay: {fileID: 6202254151573038152}
   whenRunning:
     m_PersistentCalls:
@@ -5129,13 +5097,13 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  gamepad: 0
---- !u!114 &6394749381801438417
+  gamepad: 4
+--- !u!114 &2235324557299326240
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5144,13 +5112,45 @@ MonoBehaviour:
   m_GameObject: {fileID: 6202254152653160833}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b914edc884fd9204d968a050025d9640, type: 3}
+  m_Script: {fileID: 11500000, guid: 03c34b874c335dc489ab30edb22e07ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpForce: 0.23
+  gravity: 3
+  minGravity: 1.2
+  groundCheck: {fileID: 6082100677865107635}
+  onJump:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2552702791193978858}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+        m_MethodName: Emit
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 15
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  gamepad: 4
+--- !u!114 &4985932955358864370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6202254152653160833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67110b089b0dfe94d8892c9b67f280bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   diveSpeed: 7.5
-  diveTime: 0.15
-  bufferTime: 0.25
-  groundCheck: {fileID: 6202254152346578387}
+  diveTime: 0.2
+  bufferTime: 0.15
+  groundCheck: {fileID: 6082100677865107635}
   onDive:
     m_PersistentCalls:
       m_Calls:
@@ -5161,14 +5161,14 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 10
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  gamepad: 0
+  gamepad: 4
   isDiving: 0
---- !u!114 &539775101782920941
+--- !u!114 &187833042609221062
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5180,7 +5180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e2d5b1e18421ec44b7219de7361ed80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundCheck: {fileID: 6202254152346578387}
+  groundCheck: {fileID: 6082100677865107635}
   climbJumpPower: 600
   climbSpeed: 10
   turnSpeed: 180
@@ -5194,13 +5194,13 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 8
+          m_IntArgument: 10
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  gamepad: 0
---- !u!114 &833203997723451429
+  gamepad: 4
+--- !u!114 &8937791122606251627
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5215,7 +5215,7 @@ MonoBehaviour:
   Xvelocity: 0
   Yvelocity: 0
   Zvelocity: 0
---- !u!114 &8196697588264964470
+--- !u!114 &3701888664199297040
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5224,11 +5224,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6202254152653160833}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81c30bdc5799e804b8b722bb23cef2c6, type: 3}
+  m_Script: {fileID: 11500000, guid: af8a80e32db680f438e29019ace71b7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
---- !u!114 &-6106342038212715804
+--- !u!114 &6689957600327658377
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5240,7 +5240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 811e1e6f3169d054fa685dc31c570996, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gamepad: 0
+  gamepad: 4
 --- !u!1 &6488587244265186338
 GameObject:
   m_ObjectHideFlags: 0
