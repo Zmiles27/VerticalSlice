@@ -19,6 +19,8 @@ public class Movement : MonoBehaviour
     private bool isRunning = false; // If is running
     [SerializeField] UnityEvent whenRunning; // Invoked when running
     [SerializeField] UnityEvent onDeccel; // Invoked when deccelerating
+    [SerializeField] UnityEvent whenWalking; // Invoked when walking
+    [SerializeField] UnityEvent onAirtime; // Invoked when in air
 
     Vector3 velocity = Vector3.zero; // Velocity
     Vector3 inputVector = Vector3.zero; // The input
@@ -26,6 +28,8 @@ public class Movement : MonoBehaviour
     public int gamepad = 0; // Used gamepad
     const float wallRayLength = 0.6f; // Length of the ray to do wallchecks
 
+    [SerializeField] Transform playerModel; // Transform of the player model
+    Rigidbody rb; // The player rigidbody
     Mover mover; // Object used to move player
 
 
@@ -33,6 +37,7 @@ public class Movement : MonoBehaviour
     // Setup
     private void Start()
     {
+        rb = GetComponent<Rigidbody>();
         mover = GetComponent<Mover>();
     }
 
@@ -77,15 +82,29 @@ public class Movement : MonoBehaviour
             }
 
             // Running
-            if (Input.GetButton("Run" + gamepad.ToString()) && groundCheck.isGrounded == true)
+            if (groundCheck.isGrounded == true)
             {
-                speed *= runSpeedModifier;
-                speed = Mathf.Clamp(speed, 0, maxSpeed * runSpeedModifier);
+                if (Input.GetButton("Run" + gamepad.ToString()))
+                {
+                    speed *= runSpeedModifier;
+                    speed = Mathf.Clamp(speed, 0, maxSpeed * runSpeedModifier);
 
-                isRunning = true;
+                    isRunning = true;
 
-                whenRunning.Invoke();
+                    whenRunning.Invoke();
+                }
+                else
+                {
+                    whenWalking.Invoke();
+                }
             }
+            else
+            {
+                onAirtime.Invoke();
+            }
+
+            // Set the rotation of the player model
+            playerModel.rotation = Quaternion.LookRotation(velocity.normalized);
         }
         else
         {

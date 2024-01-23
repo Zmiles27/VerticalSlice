@@ -18,9 +18,13 @@ public class Climbing : MonoBehaviour
     [SerializeField] float climbSpeed = 10.0f;
     [SerializeField] float turnSpeed = 180f;
 
+    [SerializeField] UnityEvent onClimbing; // Invoked when while climbing
+    [SerializeField] UnityEvent onReachEnd; // Invoked when while climbing
     [SerializeField] UnityEvent onAction; // Invoked when jumping or landing
 
     public int gamepad = 0; // Used gamepad
+
+    [SerializeField] Transform playerModel; // Transform of the player model
 
 
 
@@ -59,6 +63,12 @@ public class Climbing : MonoBehaviour
             {
                 Vector3 endPos = Vector3.MoveTowards(transform.position, currentClimable.GetEndPos(), climbSpeed * Time.deltaTime);
                 mover.MoveToPosition(endPos);
+
+                onReachEnd.Invoke();
+            }
+            else
+            {
+                onClimbing.Invoke();
             }
 
             // Rotation movement
