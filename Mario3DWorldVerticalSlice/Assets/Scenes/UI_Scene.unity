@@ -627,6 +627,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 934ca1ff4a0440b4d9a76cf5be6356ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickupHolder: {fileID: 2046945850}
+  HighScoreText: {fileID: 904666621}
+  CoinCounter: {fileID: 1764270650}
 --- !u!1 &554327220
 GameObject:
   m_ObjectHideFlags: 0
@@ -656,6 +659,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6063774993f97e4fa56343edacce885, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timerText: {fileID: 862652865}
+  currentTime: 441
+  countDown: 1
+  hasLimit: 1
+  timerLimit: 0
+  HasFormat: 1
+  format: 0
 --- !u!4 &554327222
 Transform:
   m_ObjectHideFlags: 0
@@ -1699,9 +1709,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2046945849}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 7a90e326c67f63c4581caf9be9743016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coin: 100
+  score: 13600
 --- !u!4 &2046945851
 Transform:
   m_ObjectHideFlags: 0
