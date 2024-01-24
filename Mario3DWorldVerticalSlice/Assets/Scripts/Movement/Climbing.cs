@@ -48,6 +48,8 @@ public class Climbing : MonoBehaviour
             float zInput = Input.GetAxisRaw("Vertical" + gamepad.ToString());
             float xInput = Input.GetAxisRaw("Horizontal" + gamepad.ToString());
 
+            Transform climableTrans = currentClimable.transform;
+
 
             // Up-down movement
             if (xInput == 0 && zInput != 0 && transform.position.y < currentClimable.GetEndPos().y)
@@ -75,7 +77,6 @@ public class Climbing : MonoBehaviour
             if (xInput != 0 && transform.position.y < currentClimable.GetEndPos().y)
             {
                 // Get the climable position
-                Transform climableTrans = currentClimable.transform;
                 Vector3 climablePos = new Vector3(climableTrans.position.x, rb.position.y, climableTrans.position.z);
                 
                 // Get the next angle
@@ -84,6 +85,10 @@ public class Climbing : MonoBehaviour
                 // Move the player position
                 transform.RotateAround(climablePos, Vector3.up, angle);
             }
+
+            // Set the player rotation
+            Vector3 lookRotation = (new Vector3(climableTrans.position.x, 0, climableTrans.position.z) - new Vector3(rb.position.x, 0, rb.position.z)).normalized;
+            playerModel.rotation = Quaternion.LookRotation(lookRotation);
         }
 
         // Jumping and leaving the climable

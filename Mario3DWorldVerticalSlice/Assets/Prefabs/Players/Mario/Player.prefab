@@ -895,6 +895,18 @@ MonoBehaviour:
   onLand:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1422262720755752537}
+        m_TargetAssemblyTypeName: Jumping, Assembly-CSharp
+        m_MethodName: ResetJumpVelocity
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 3446544636785861779}
         m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
         m_MethodName: Emit
@@ -928,19 +940,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Climbing
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 467285963164696615}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: ResetTrigger
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Air
+          m_StringArgument: Dive
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 4207515189644444815}
@@ -967,6 +967,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4207515189644444815}
+        m_TargetAssemblyTypeName: PlayerAnimationBools, Assembly-CSharp
+        m_MethodName: SetIsAir
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 467285963164696615}
         m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
         m_MethodName: SetTrigger
@@ -982,17 +994,17 @@ MonoBehaviour:
   onAir:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 467285963164696615}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: SetTrigger
-        m_Mode: 5
+      - m_Target: {fileID: 4207515189644444815}
+        m_TargetAssemblyTypeName: PlayerAnimationBools, Assembly-CSharp
+        m_MethodName: SetIsAir
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Air
-          m_BoolArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!1 &6533393705530852088
 GameObject:
@@ -1228,33 +1240,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onAirtime:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4207515189644444815}
-        m_TargetAssemblyTypeName: PlayerAnimationBools, Assembly-CSharp
-        m_MethodName: SetIsIdle
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 467285963164696615}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: SetTrigger
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Air
-          m_BoolArgument: 1
-        m_CallState: 2
   gamepad: 4
   playerModel: {fileID: 6965225651316521197}
 --- !u!114 &1422262720755752537
@@ -1286,18 +1271,6 @@ MonoBehaviour:
           m_IntArgument: 15
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 467285963164696615}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: SetTrigger
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Jump
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 4207515189644444815}
@@ -1368,6 +1341,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 467285963164696615}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Dive
+          m_BoolArgument: 0
+        m_CallState: 2
   gamepad: 4
   isDiving: 0
 --- !u!114 &1018590423589351103
@@ -1403,6 +1388,21 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 467285963164696615}
         m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: ResetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Dive
+          m_BoolArgument: 1
+        m_CallState: 2
+  onReachEnd:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 467285963164696615}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
         m_MethodName: SetTrigger
         m_Mode: 5
         m_Arguments:
@@ -1410,12 +1410,21 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Climbing
-          m_BoolArgument: 1
+          m_StringArgument: EndClimb
+          m_BoolArgument: 0
         m_CallState: 2
-  onReachEnd:
-    m_PersistentCalls:
-      m_Calls: []
+      - m_Target: {fileID: 4207515189644444815}
+        m_TargetAssemblyTypeName: PlayerAnimationBools, Assembly-CSharp
+        m_MethodName: SetIsJumping
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onAction:
     m_PersistentCalls:
       m_Calls:
@@ -1431,16 +1440,40 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4207515189644444815}
+        m_TargetAssemblyTypeName: PlayerAnimationBools, Assembly-CSharp
+        m_MethodName: SetIsJumping
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 467285963164696615}
         m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: SetTrigger
+        m_MethodName: ResetTrigger
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Jump
+          m_StringArgument: EndClimb
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4207515189644444815}
+        m_TargetAssemblyTypeName: PlayerAnimationBools, Assembly-CSharp
+        m_MethodName: SetIsClimbing
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
   gamepad: 4

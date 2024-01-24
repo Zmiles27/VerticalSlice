@@ -63,6 +63,11 @@ public class Jumping : MonoBehaviour
     // Reset velocity
     private void OnCollisionEnter(Collision collision)
     {
+        ResetJumpVelocity();
+    }
+
+    public void ResetJumpVelocity()
+    {
         if (mover != null) { mover.Yvelocity = 0; }
     }
 

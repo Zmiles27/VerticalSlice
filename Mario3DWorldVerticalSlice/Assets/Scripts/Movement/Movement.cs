@@ -20,7 +20,6 @@ public class Movement : MonoBehaviour
     [SerializeField] UnityEvent whenRunning; // Invoked when running
     [SerializeField] UnityEvent onDeccel; // Invoked when deccelerating
     [SerializeField] UnityEvent whenWalking; // Invoked when walking
-    [SerializeField] UnityEvent onAirtime; // Invoked when in air
 
     Vector3 velocity = Vector3.zero; // Velocity
     Vector3 inputVector = Vector3.zero; // The input
@@ -98,13 +97,9 @@ public class Movement : MonoBehaviour
                     whenWalking.Invoke();
                 }
             }
-            else
-            {
-                onAirtime.Invoke();
-            }
 
             // Set the rotation of the player model
-            playerModel.rotation = Quaternion.LookRotation(velocity.normalized);
+            playerModel.rotation = Quaternion.LookRotation(inputVector.normalized);
         }
         else
         {

@@ -11,6 +11,7 @@ public class PlayerAnimationBools : MonoBehaviour
     const string isJumpingName = "isJumping";
     const string isClimbingName = "isClimbing";
     const string isIdleName = "isIdle";
+    const string isAirName = "isAir";
 
     
     // Set up
@@ -34,6 +35,11 @@ public class PlayerAnimationBools : MonoBehaviour
     public void SetIsIdle(bool isIdle)
     {
         animator.SetBool(isIdleName, isIdle);
+    }
+
+    public void SetIsAir(bool isAir)
+    {
+        animator.SetBool(isAirName, isAir);
     }
 
     // - Example
