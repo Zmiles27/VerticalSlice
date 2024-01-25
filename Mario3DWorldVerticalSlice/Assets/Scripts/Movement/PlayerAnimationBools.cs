@@ -12,6 +12,7 @@ public class PlayerAnimationBools : MonoBehaviour
     const string isClimbingName = "isClimbing";
     const string isIdleName = "isIdle";
     const string isAirName = "isAir";
+    const string isSlashingName = "isSlashing";
 
     
     // Set up
@@ -40,6 +41,11 @@ public class PlayerAnimationBools : MonoBehaviour
     public void SetIsAir(bool isAir)
     {
         animator.SetBool(isAirName, isAir);
+    }
+
+    public void SetIsSlashing(bool isSlashing)
+    {
+        animator.SetBool(isSlashingName, isSlashing);
     }
 
     // - Example

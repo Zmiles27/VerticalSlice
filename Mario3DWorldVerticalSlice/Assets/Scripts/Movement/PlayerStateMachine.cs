@@ -9,6 +9,7 @@ public class PlayerStateMachine : MonoBehaviour
     Movement movement;
     Jumping jumping;
     Dive dive;
+    Slash slash;
     Climbing climbing;
 
     Mover mover;
@@ -47,6 +48,7 @@ public class PlayerStateMachine : MonoBehaviour
         movement = GetComponent<Movement>();
         jumping = GetComponent<Jumping>();
         dive = GetComponent<Dive>();
+        slash = GetComponent<Slash>();
         climbing = GetComponent<Climbing>();
 
         mover = GetComponent<Mover>();
@@ -69,6 +71,7 @@ public class PlayerStateMachine : MonoBehaviour
                 movement.enabled = true;
                 jumping.enabled = true;
                 dive.enabled = true;
+                slash.enabled = true;
 
                 climbing.enabled = false;
 
@@ -79,6 +82,7 @@ public class PlayerStateMachine : MonoBehaviour
                 movement.enabled = false;
                 jumping.enabled = false;
                 dive.enabled = false;
+                slash.enabled = false;
 
                 climbing.enabled = true;
 
@@ -89,6 +93,7 @@ public class PlayerStateMachine : MonoBehaviour
                 movement.enabled = false;
                 jumping.enabled = false;
                 dive.enabled = false;
+                slash.enabled= false;
 
                 climbing.enabled = false;
 

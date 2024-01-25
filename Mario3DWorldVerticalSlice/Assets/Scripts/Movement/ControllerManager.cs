@@ -10,6 +10,7 @@ public class ControllerManager : MonoBehaviour
     Movement movement;
     Jumping jumping;
     Dive dive;
+    Slash slash;
     Climbing climbing;
 
 
@@ -20,6 +21,7 @@ public class ControllerManager : MonoBehaviour
         movement = GetComponent<Movement>();
         jumping = GetComponent<Jumping>();
         dive = GetComponent<Dive>();
+        slash = GetComponent<Slash>();
         climbing = GetComponent<Climbing>();
 
         SetGamepad(gamepad);
@@ -34,6 +36,7 @@ public class ControllerManager : MonoBehaviour
         movement.gamepad = gamepad;
         jumping.gamepad = gamepad;
         dive.gamepad = gamepad;
+        slash.gamepad = gamepad;
         climbing.gamepad = gamepad;
     }
 }
