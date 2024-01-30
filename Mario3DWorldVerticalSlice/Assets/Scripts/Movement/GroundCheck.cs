@@ -15,6 +15,7 @@ public class GroundCheck : MonoBehaviour
     public bool isGrounded = false; // Variable that is false when not on the ground and true when the check is.
 
     [SerializeField] UnityEvent onLand; // Called when touching the ground again
+    [SerializeField] UnityEvent onAir; // Called when touching the ground again
 
 
     // Check if the ground check is colliding with the ground
@@ -59,7 +60,9 @@ public class GroundCheck : MonoBehaviour
         }
         else 
         { 
-            isGrounded = false; 
+            isGrounded = false;
+
+            onAir.Invoke();
         }
     }
 
