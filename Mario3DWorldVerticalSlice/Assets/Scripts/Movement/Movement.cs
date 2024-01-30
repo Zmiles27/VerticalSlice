@@ -126,14 +126,20 @@ public class Movement : MonoBehaviour
             mover.Xvelocity = velocity.x;
             mover.Zvelocity = velocity.z;
         }
-        else inputVector = Vector3.zero;
+        else
+        {
+            inputVector = Vector3.zero;
+
+            mover.Xvelocity = 0;
+            mover.Zvelocity = 0;
+        }
     }
 
 
     // Check with a raycast if the player is colliding with a wall
     bool IsCollidingWithWall()
     {
-        if (Physics.Raycast(wallCheckRay.position, inputVector, wallRayLength))
+        if (Physics.Raycast(wallCheckRay.position, inputVector.normalized, wallRayLength))
         {
             return true;
         }
@@ -147,7 +153,7 @@ public class Movement : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawLine(transform.position, transform.position + inputVector * wallRayLength);
+        Gizmos.DrawLine(transform.position, transform.position + inputVector.normalized * wallRayLength);
     }
 }
 

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Mover : MonoBehaviour
 {
+    // Script for moving the rigidbody of the player
+
     public float Xvelocity = 0;
     public float Yvelocity = 0;
     public float Zvelocity = 0;
@@ -19,7 +21,7 @@ public class Mover : MonoBehaviour
 
     private void FixedUpdate()
     {
-        velocity = new Vector3 (Xvelocity, Yvelocity, Zvelocity);
+        velocity = new Vector3(Xvelocity, Yvelocity, Zvelocity);
         rb.MovePosition(transform.position + velocity);
     }
 
