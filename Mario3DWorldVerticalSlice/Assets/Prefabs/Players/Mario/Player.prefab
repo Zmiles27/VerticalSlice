@@ -1001,7 +1001,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.6, y: 0.25, z: 0.6}
+  m_Size: {x: 0.6, y: 0.4, z: 0.6}
   m_Center: {x: 0, y: -0.95, z: 0}
 --- !u!114 &6403667768820511690
 MonoBehaviour:
@@ -1015,7 +1015,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afa8729b05f48d748aad70905618978c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundRayLength: 1.02
+  groundRayLength: 1.2
   coyoteTime: 0.08
   isGrounded: 0
   onLand:
