@@ -6,17 +6,17 @@ using UnityEngine.Events;
 
 public class Climbing : MonoBehaviour
 {
-    Mover mover;
-    Rigidbody rb;
-    PlayerStateMachine stateMachine;
+    Mover mover; // Used for moving the player with easy control to it's velocity
+    Rigidbody rb; // The players rigidbody
+    PlayerStateMachine stateMachine; // The player state machine
 
-    [SerializeField] GroundCheck groundCheck;
+    [SerializeField] GroundCheck groundCheck; // Used for checking if the player is grounded
 
-    Climable currentClimable;
+    Climable currentClimable; // The CURRENT climable target
 
-    [SerializeField] float climbJumpPower = 600.0f;
-    [SerializeField] float climbSpeed = 10.0f;
-    [SerializeField] float turnSpeed = 180f;
+    [SerializeField] float climbJumpPower = 600.0f; // Power of jumping off the climable
+    [SerializeField] float climbSpeed = 10.0f; // The speed of climbing
+    [SerializeField] float turnSpeed = 180f; // The speed of turning around the climable
 
     [SerializeField] UnityEvent onClimbing; // Invoked when while climbing
     [SerializeField] UnityEvent onReachEnd; // Invoked when while climbing
@@ -28,7 +28,7 @@ public class Climbing : MonoBehaviour
 
 
 
-
+    // Set up
     private void Start()
     {
         mover = GetComponent<Mover>();
@@ -42,13 +42,14 @@ public class Climbing : MonoBehaviour
     {
         if (currentClimable != null)
         {
-            rb.useGravity = false;
-            rb.velocity = Vector3.zero;
+            rb.useGravity = false; // Setting the player's gravity to false so the player cannot fall from the target climable
+            rb.velocity = Vector3.zero; // Setting the player's velocity (Used for gaining speed) to none for more static climbing movement
 
+            // Movement inputs
             float zInput = Input.GetAxisRaw("Vertical" + gamepad.ToString());
             float xInput = Input.GetAxisRaw("Horizontal" + gamepad.ToString());
 
-            Transform climableTrans = currentClimable.transform;
+            Transform climableTrans = currentClimable.transform; // Transform of the current climable
 
 
             // Up-down movement
@@ -61,6 +62,7 @@ public class Climbing : MonoBehaviour
                 mover.Yvelocity = 0;
             }
 
+            // When above or at the final height of the current climable, move to the climable's end position
             if (transform.position.y >= currentClimable.GetEndPos().y)
             {
                 Vector3 endPos = Vector3.MoveTowards(transform.position, currentClimable.GetEndPos(), climbSpeed * Time.deltaTime);

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Mover : MonoBehaviour
 {
     // Script for moving the rigidbody of the player
+    // This is for more control then using forces or the rigidbody's own velocity
 
     public float Xvelocity = 0;
     public float Yvelocity = 0;
